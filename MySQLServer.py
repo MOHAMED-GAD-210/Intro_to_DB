@@ -1,12 +1,11 @@
 import mysql.connector
-from mysql.connector import Error
 
 try:
     # إنشاء الاتصال بسيرفر MySQL
     connection = mysql.connector.connect(
-        host='localhost',       # لو على sandbox خليها localhost
-        user='root',            # اسم المستخدم
-        password=''             # ضع كلمة المرور لو موجودة
+        host='localhost',   # أو حسب إعداداتك
+        user='root',
+        password=''         # ضع كلمة المرور لو موجودة
     )
 
     if connection.is_connected():
@@ -15,8 +14,8 @@ try:
         cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
         print("Database 'alx_book_store' created successfully!")
 
-except Error as e:
-    print(f"Error while connecting to MySQL: {e}")
+except mysql.connector.Error as err:
+    print(f"Error while connecting to MySQL: {err}")
 
 finally:
     # إغلاق الاتصال بشكل آمن

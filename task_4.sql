@@ -1,15 +1,14 @@
 -- task_4.sql
--- Full description of the table Books without using DESCRIBE or EXPLAIN
--- Use INFORMATION_SCHEMA to fetch all details
+-- Full description of the table "books" without using DESCRIBE or EXPLAIN
 
 SELECT 
-    COLUMN_NAME AS `Column`,
-    COLUMN_TYPE AS `Type`,
-    IS_NULLABLE AS `Null`,
-    COLUMN_KEY AS `Key`,
-    COLUMN_DEFAULT AS `Default`,
-    EXTRA AS `Extra`
+    COLUMN_NAME AS 'Column Name',
+    COLUMN_TYPE AS 'Data Type',
+    IS_NULLABLE AS 'Nullable',
+    COLUMN_KEY AS 'Key',
+    COLUMN_DEFAULT AS 'Default',
+    EXTRA AS 'Extra'
 FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_SCHEMA = DATABASE()
-  AND TABLE_NAME = 'Books'
+WHERE TABLE_SCHEMA = 'alx_book_store' 
+  AND TABLE_NAME = 'books'
 ORDER BY ORDINAL_POSITION;
