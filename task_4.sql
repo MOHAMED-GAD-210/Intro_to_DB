@@ -1,5 +1,6 @@
 -- task_4.sql
--- Full description of the table "books" without using DESCRIBE or EXPLAIN
+-- Full description of table books without using DESCRIBE or EXPLAIN
+-- The database name is passed as argument to the mysql command
 
 SELECT 
     COLUMN_NAME AS 'Column Name',
@@ -9,6 +10,6 @@ SELECT
     COLUMN_DEFAULT AS 'Default',
     EXTRA AS 'Extra'
 FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_SCHEMA = 'alx_book_store' 
+WHERE TABLE_SCHEMA = DATABASE()   -- يستخدم قاعدة البيانات الحالية فقط
   AND TABLE_NAME = 'books'
 ORDER BY ORDINAL_POSITION;
