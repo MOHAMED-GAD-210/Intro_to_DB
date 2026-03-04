@@ -1,4 +1,6 @@
 -- task_3.sql
--- List all tables in the database (the database name is passed as argument to mysql)
+-- Use the correct database
+USE alx_book_store;
 
+-- List all tables in the database
 SHOW TABLES;
